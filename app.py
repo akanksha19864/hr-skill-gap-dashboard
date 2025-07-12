@@ -20,6 +20,7 @@ st.set_page_config(page_title="HR Skill Gap Dashboard", layout="wide")
 
 st.markdown("""
     <style>
+    /* Light Theme */
     .block-container {
         padding: 2rem 2rem 1rem 2rem;
         background: linear-gradient(to right, #f5f7fa, #c3cfe2);
@@ -41,6 +42,33 @@ st.markdown("""
     h1, h4 {
         text-align: center;
         color: #2f3542;
+    }
+
+    /* Dark Mode Support */
+    @media (prefers-color-scheme: dark) {
+        body {
+            background: linear-gradient(to right, #1e1e2f, #2c3e50);
+            color: #ecf0f1;
+        }
+
+        .st-emotion-cache-1avcm0n {
+            background-color: rgba(40, 44, 52, 0.8);
+            color: #f1f1f1;
+        }
+
+        .metric-box {
+            background-color: rgba(60, 64, 72, 0.9);
+            color: #f1f1f1;
+        }
+
+        .css-1v0mbdj, .stTextInput > div > div > input {
+            background-color: #2f3542 !important;
+            color: #ecf0f1 !important;
+        }
+
+        .css-18ni7ap {
+            color: #ffffff !important;
+        }
     }
     </style>
 """, unsafe_allow_html=True)
@@ -146,3 +174,4 @@ if emp_file and req_file:
             title="Role-Wise Training Needs"
         )
         st.plotly_chart(pie_chart, use_container_width=True)
+        
